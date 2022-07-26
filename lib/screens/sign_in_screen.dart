@@ -92,10 +92,10 @@ class _SignInScreenState extends State<SignInScreen> {
             lable2: ' Sign in',
             ontap: () {
               setState(() {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const LogInScreen()),
-                );
+                Navigator.of(context).pushReplacementNamed('/');
+                // Navigator.push(
+                //   context,
+                //   MaterialPageRoute(builder: (context) => const LogInScreen()),
               });
             },
           ),

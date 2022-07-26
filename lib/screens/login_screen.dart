@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/screens/homepage_screen.dart';
 import 'package:flutter_app/screens/sign_in_screen.dart';
 import '../widget/button.dart';
 import '../widget/divider.dart';
@@ -53,7 +54,13 @@ class _LogInScreenState extends State<LogInScreen> {
           SizedBox(height: space),
           Button(
             lable: 'LOGIN',
-            ontap: () {},
+            ontap: () {
+              Navigator.of(context).pushReplacementNamed('/homepagescreen');
+              // Navigator.push(
+              //   context,
+              //   MaterialPageRoute(builder: (context) => const HomePageScreen()),
+              // );
+            },
           ),
           const SizedBox(
             height: 5,
@@ -63,10 +70,11 @@ class _LogInScreenState extends State<LogInScreen> {
             lable2: ' Sign Up',
             ontap: () {
               setState(() {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const SignInScreen()),
-                );
+                Navigator.of(context).pushReplacementNamed('/signinscreen');
+                // Navigator.push(
+                //   context,
+                //   MaterialPageRoute(builder: (context) => const SignInScreen()),
+                // );
               });
             },
           ),
