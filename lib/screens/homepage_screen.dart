@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/screens/details_service_screen.dart';
+import 'package:flutter_app/widget/tabs-widget/booking-tab.dart';
 import '../widget/bottom_sheet.dart';
-import '../widget/tap_homepage.dart';
+import '../widget/tabs-widget/tap_homepage.dart';
 
 class HomePageScreen extends StatefulWidget {
   const HomePageScreen({Key? key}) : super(key: key);

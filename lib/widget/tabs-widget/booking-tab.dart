@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../widget/stars.dart';
+import '../stars.dart';
 
 class BookingTab extends StatefulWidget {
   const BookingTab({Key? key}) : super(key: key);
@@ -21,7 +21,7 @@ class _BookingTabState extends State<BookingTab> {
             Container(
               decoration: BoxDecoration(
                 color: Colors.grey[200],
-                borderRadius: BorderRadius.all(
+                borderRadius: const BorderRadius.all(
                   Radius.circular(10),
                 ),
               ),
@@ -111,8 +111,9 @@ class _BookingTabState extends State<BookingTab> {
               ),
             ),
             Row(
+              // ignore: prefer_const_literals_to_create_immutables
               children: [
-                Text('About Handyman',
+                const Text('About Handyman',
                     style:
                         TextStyle(fontSize: 14, fontWeight: FontWeight.bold)),
               ],
@@ -132,14 +133,15 @@ class _BookingTabState extends State<BookingTab> {
                     padding: const EdgeInsets.all(8.0),
                     child: Row(
                       children: [
-                        CircleAvatar(
+                        const CircleAvatar(
                           radius: 50,
                           backgroundImage:
                               AssetImage('assets/images/fmale2.jpg'),
                         ),
                         Column(
+                          // ignore: prefer_const_literals_to_create_immutables
                           children: [
-                            Text(
+                            const Text(
                               'Justine Boyle',
                               style: TextStyle(
                                   fontSize: 14, fontWeight: FontWeight.bold),

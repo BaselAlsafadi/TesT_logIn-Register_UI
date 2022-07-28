@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/screens/login_screen.dart';
-import 'package:flutter_app/widget/input_text.dart';
-import '../widget/button.dart';
-import '../widget/circle_avatar.dart';
-import '../widget/line_under_button.dart';
-import '../widget/wellcom_message.dart';
+import '../widget/login-signin-widget/button.dart';
+import '../widget/login-signin-widget/circle_avatar.dart';
+import '../widget/login-signin-widget/input_text.dart';
+import '../widget/login-signin-widget/line_under_button.dart';
+import '../widget/login-signin-widget/wellcom_message.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({Key? key}) : super(key: key);
@@ -93,9 +92,6 @@ class _SignInScreenState extends State<SignInScreen> {
             ontap: () {
               setState(() {
                 Navigator.of(context).pushReplacementNamed('/');
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(builder: (context) => const LogInScreen()),
               });
             },
           ),

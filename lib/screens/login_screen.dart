@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/screens/homepage_screen.dart';
-import 'package:flutter_app/screens/sign_in_screen.dart';
-import '../widget/button.dart';
+import '../widget/login-signin-widget/button.dart';
 import '../widget/divider.dart';
-import '../widget/forgot_password_line.dart';
-import '../widget/input_text.dart';
-import '../widget/line_under_button.dart';
-import '../widget/sign_in_with_google_or_phone.dart';
-import '../widget/wellcom_message.dart';
+import '../widget/login-signin-widget/forgot_password_line.dart';
+import '../widget/login-signin-widget/input_text.dart';
+import '../widget/login-signin-widget/line_under_button.dart';
+import '../widget/login-signin-widget/sign_in_with_google_or_phone.dart';
+import '../widget/login-signin-widget/wellcom_message.dart';
 
 class LogInScreen extends StatefulWidget {
   const LogInScreen({Key? key}) : super(key: key);
@@ -17,7 +15,6 @@ class LogInScreen extends StatefulWidget {
 }
 
 class _LogInScreenState extends State<LogInScreen> {
-  bool value = false;
   int x = 0;
   @override
   Widget build(BuildContext context) {
@@ -56,10 +53,6 @@ class _LogInScreenState extends State<LogInScreen> {
             lable: 'LOGIN',
             ontap: () {
               Navigator.of(context).pushReplacementNamed('/homepagescreen');
-              // Navigator.push(
-              //   context,
-              //   MaterialPageRoute(builder: (context) => const HomePageScreen()),
-              // );
             },
           ),
           const SizedBox(
@@ -71,10 +64,6 @@ class _LogInScreenState extends State<LogInScreen> {
             ontap: () {
               setState(() {
                 Navigator.of(context).pushReplacementNamed('/signinscreen');
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(builder: (context) => const SignInScreen()),
-                // );
               });
             },
           ),
