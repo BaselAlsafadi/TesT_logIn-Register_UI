@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/widget/tabs-widget/booking-tab.dart';
+import 'package:flutter_app/widget/tabs-widget/booking_tab.dart';
+import 'package:flutter_app/widget/tabs-widget/users_tab.dart';
+import 'package:hive_flutter/adapters.dart';
 import '../widget/bottom_sheet.dart';
-import '../widget/tabs-widget/tap_homepage.dart';
+import '../widget/tabs-widget/homepage_tap.dart';
 
 class HomePageScreen extends StatefulWidget {
-  const HomePageScreen({Key? key}) : super(key: key);
+  final String email;
+  final String password;
+  const HomePageScreen({Key? key, required this.email, required this.password})
+      : super(key: key);
 
   @override
   State<HomePageScreen> createState() => _HomePageScreenState();
@@ -12,6 +17,8 @@ class HomePageScreen extends StatefulWidget {
 
 class _HomePageScreenState extends State<HomePageScreen> {
   int _selectedIndex = 0;
+  List<Map<String, dynamic>> items = [];
+  final usersBox = Hive.box('Users_box');
 
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
@@ -24,7 +31,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
       'Booking',
     ),
     Text(
-      'Wallet',
+      'Users',
     ),
     Text(
       'Notfication',
@@ -35,6 +42,48 @@ class _HomePageScreenState extends State<HomePageScreen> {
     setState(() {
       _selectedIndex = index;
     });
+  }
+
+  void _refreshItems() {
+    final data = usersBox.keys.map((key) {
+      final value = usersBox.get(key);
+      return {
+        "key": key,
+        "name": value["name"],
+        "username": value['username'],
+        "email": value['email'],
+        "password": value['password'],
+        "number": value['number']
+      };
+    }).toList();
+
+    setState(() {
+      items = data.reversed.toList();
+      // we use "reversed" to sort items in order from the latest to the oldest
+    });
+  }
+
+  // Create new item
+  Future<void> createItem(Map<String, dynamic> newItem) async {
+    await usersBox.add(newItem);
+    _refreshItems(); // update the UI
+  }
+
+  @override
+  void initState() {
+    super.initState();
+
+    _refreshItems();
+
+    items.length == 1
+        ? createItem({
+            "name": "Fahed Alghami",
+            "username": "Fahed_123",
+            "email": "Fahed@gmail.com",
+            "password": "123456",
+            "number": "2"
+          })
+        : _refreshItems(); // Load data when app starts
   }
 
   @override
@@ -68,8 +117,13 @@ class _HomePageScreenState extends State<HomePageScreen> {
         ],
       ),
       body: Center(
-          child:
-              _selectedIndex == 0 ? const TapHomeScreen() : const BookingTab()),
+          child: _selectedIndex == 0
+              ? const TapHomeScreen()
+              : _selectedIndex == 1
+                  ? const BookingTab()
+                  : UsersTab(
+                      email: widget.email,
+                    )),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(

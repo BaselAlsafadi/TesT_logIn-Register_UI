@@ -20,10 +20,10 @@ class AppRouter {
         );
 
       /// Home Page Screen
-      case '/homepagescreen':
-        return MaterialPageRoute(
-          builder: (_) => const HomePageScreen(),
-        );
+      // case '/homepagescreen':
+      //   return MaterialPageRoute(
+      //     builder: (_) => const HomePageScreen(),
+      //   );
 
       default:
         return MaterialPageRoute(

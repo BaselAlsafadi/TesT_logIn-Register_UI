@@ -156,15 +156,9 @@ class _BookingTabState extends State<BookingTab> {
                   top: 20,
                   right: 20,
                   child: SizedBox(
-                    width: 25,
-                    height: 25,
-                    child: ClipPath(
-                      clipper: StarClipper(10),
-                      child: Container(
-                        color: Colors.green,
-                      ),
-                    ),
-                  ),
+                      width: 20,
+                      height: 20,
+                      child: Image.asset('assets/images/verified badge.png')),
                 ),
               ]),
             )

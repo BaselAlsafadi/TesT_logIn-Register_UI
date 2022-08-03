@@ -5,17 +5,20 @@ class InputText extends StatelessWidget {
   final String label;
   final Icon icon;
   final Function() ontap;
+  final TextEditingController controller;
   const InputText({
     Key? key,
     required this.hint,
     required this.label,
     required this.icon,
     required this.ontap,
+    required this.controller,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: controller,
       decoration: InputDecoration(
           filled: true,
           fillColor: const Color(0xFFF6F7FF),
